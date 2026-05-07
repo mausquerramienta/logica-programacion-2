@@ -1,0 +1,115 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.converter-card {
+    background: white;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+    text-align: center;
+}
+
+h1 {
+    font-size: 22px;
+    color: #202124;
+    margin-bottom: 24px;
+    font-weight: 400;
+}
+
+.input-section {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+}
+
+.input-section:focus-within {
+    border: 1px solid #1a73e8;
+    box-shadow: 0 0 0 1px #1a73e8;
+}
+
+input {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    width: 100%;
+    color: #3c4043;
+}
+
+.unit-label {
+    color: #70757a;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+button {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 24px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #1765cc;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+}
+
+.results-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    border-top: 1px solid #e8eaed;
+    padding-top: 24px;
+}
+
+.result-box {
+    text-align: left;
+}
+
+.label {
+    display: block;
+    font-size: 12px;
+    color: #70757a;
+    margin-bottom: 4px;
+}
+
+.value {
+    font-size: 18px;
+    color: #1a73e8;
+    font-weight: 500;
+}
+
+.error-text {
+    color: #d93025;
+    font-size: 13px;
+    margin-top: 12px;
+    height: 18px; /* Previene saltos de diseño */
+}
