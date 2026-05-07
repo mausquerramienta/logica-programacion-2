@@ -1,22 +1,31 @@
 // Temperature converter
 
-while (true) {
-    // 1. Cast the input as a raw string first to catch empty strings or null (cancel)
-    let inputString = prompt("Enter temperature in Celsius: ");
-    // 2. Convert the raw input into a numeric type value
-    let celsiusDegrees = Number(inputString);
+// Getting DOM elements
+const convertBtn = document.getElementById('convertBtn');
+const celsius = document.getElementById('celsiusDegree');
+const fahrenheitEl = document.getElementById('fahrenheitValue');
+const kelvinEl = document.getElementById('kelvinValue');
+const errorOutput = document.getElementById('errorOutput');
+
+// Main function
+convertBtn.addEventListener('click', () => {
+    const inputString = celsius.value; // Get the value from the input element (string type)
+    const celsiusDegrees = Number(inputString); // Convert string to number 
     
-    // 3. Validate: Must be a number (!isNaN), not empty (""), and not null
-    if (!isNaN(celsiusDegrees) && inputString !== "" && inputString !== null) {
-        // Apply conversion formulas
-        let fahrenheit = (celsiusDegrees * (9/5)) + 32;
-        console.log("Temperature " + celsiusDegrees + " in Fahrenheit is: " + fahrenheit);
-        let kelvin = celsiusDegrees + 273.15;
-        console.log("Temperature " + celsiusDegrees + " in Kelvin is: " + kelvin);
-        // Break when done
-        break;
+    // Validation
+    if (inputString !== "" && !isNaN(celsiusDegrees)) {
+        errorOutput.textContent = ""; // Clear previous errors
+        // Calculations
+        const fahrenheitResult = (celsiusDegrees * (9/5)) + 32;
+        const kelvinResult = celsiusDegrees + 273.15;
+        
+        fahrenheitEl.textContent = fahrenheitResult.toFixed(2) + " °F"; // Update the DOM with the results 
+        kelvinEl.textContent = kelvinResult.toFixed(2) + " K";
+        
+        console.log(`Success: ${celsiusDegrees}°C converted.`);
     } else {
-        // Invalid input, log the error and let the loop prompt the user again
-        console.log("Error: Please enter the temperature in a valid numeric format.");
+        errorOutput.textContent = "Please enter a valid number."; // Handling errors
+        fahrenheitEl.textContent = "--";
+        kelvinEl.textContent = "--";
     }
-}
+});
